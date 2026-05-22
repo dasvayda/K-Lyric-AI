@@ -1,0 +1,113 @@
+Upgrade the existing K-Lyric AI platform into a scalable AI-powered K-Culture language ecosystem.
+
+------------------------------------------------
+NEW FEATURES
+------------------------------------------------
+
+1. AI Shadowing Coach
+
+Features:
+- Real-time pronunciation scoring
+- Rhythm matching
+- Intonation feedback
+- Singing-style practice
+
+------------------------------------------------
+
+2. K-Drama Mode
+
+Users can:
+- Learn from drama subtitles
+- Understand slang
+- Learn emotional expressions
+- Practice roleplay conversations
+
+------------------------------------------------
+
+3. AI Conversation Simulation
+
+Modes:
+- Idol fan conversation
+- Korean friend
+- Cafe ordering
+- Dating conversation
+- Travel situations
+
+------------------------------------------------
+
+4. Personalized AI Memory
+
+Store:
+- Favorite artists
+- Weak pronunciation areas
+- Learned expressions
+- Learning style
+- Preferred genres
+
+------------------------------------------------
+
+5. Social Learning Features
+
+- Share favorite lyric explanations
+- Community translations
+- Fan expression collections
+- Study groups
+
+------------------------------------------------
+
+6. Gamification
+
+- XP
+- Level system
+- Missions
+- Weekly streaks
+- Pronunciation ranking
+
+------------------------------------------------
+
+7. AI Recommendation Engine
+
+Recommend:
+- Songs
+- Expressions
+- Lessons
+- Practice difficulty
+
+------------------------------------------------
+TECH REQUIREMENTS
+------------------------------------------------
+
+Implement:
+- Multi-agent AI architecture
+- Event-driven backend
+- AI memory system
+- Recommendation pipeline
+- Scalable vector retrieval
+- Streaming response support
+
+------------------------------------------------
+BUSINESS REQUIREMENTS
+------------------------------------------------
+
+Prepare:
+- Subscription plans
+- Family plans
+- Telecom partnerships
+- Localization support
+- Multi-language UI
+
+------------------------------------------------
+OUTPUT REQUIRED
+------------------------------------------------
+
+Generate:
+1. Scalable architecture redesign
+2. AI agent system
+3. Recommendation system design
+4. Personal memory architecture
+5. Social platform design
+6. Premium subscription architecture
+7. Data pipeline design
+8. Production infrastructure
+9. Security architecture
+10. Growth roadmap

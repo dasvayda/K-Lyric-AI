@@ -1,0 +1,169 @@
+You are a senior full-stack AI architect and mobile app engineer.
+
+Build an MVP mobile-first platform named:
+
+"K-Lyric AI"
+
+Core concept:
+Users learn Korean naturally through K-POP song lyrics.
+
+Target users:
+- Southeast Asia
+- South America
+- K-POP fans
+- Age 15~35
+- Mobile-first users
+
+Primary goal:
+Deliver emotional and immersive Korean learning experiences through song lyrics, pronunciation, and AI explanations.
+
+------------------------------------------------
+TECH STACK
+------------------------------------------------
+
+Frontend:
+- Next.js
+- TailwindCSS
+- PWA mobile-first UI
+- React Query
+
+Backend:
+- FastAPI
+- PostgreSQL
+- Redis
+
+AI:
+- Local lightweight SLLM abstraction layer
+- OpenAI fallback
+- RAG pipeline
+- Whisper for speech recognition
+- Edge-friendly architecture
+
+Vector DB:
+- pgvector
+
+Deployment:
+- Docker
+- Railway or AWS ECS
+
+------------------------------------------------
+MVP FEATURES
+------------------------------------------------
+
+1. Song lyric learning screen
+
+Features:
+- Korean lyrics line-by-line
+- Romanization
+- Native language translation
+- AI explanation
+- Vocabulary extraction
+- Emotional/context explanation
+
+Example:
+
+Korean:
+보고 싶다
+
+Romanization:
+bogo sipda
+
+Translation:
+I miss you
+
+AI Explanation:
+This expression is commonly used to express emotional longing.
+
+------------------------------------------------
+
+2. AI Tutor Chat
+
+Users can ask:
+- What does this line mean?
+- Is this formal?
+- Can I use this in real life?
+- How do Koreans feel about this expression?
+
+Use RAG-based retrieval over:
+- Korean expression database
+- K-culture explanation DB
+- Vocabulary DB
+
+------------------------------------------------
+
+3. Pronunciation practice
+
+Flow:
+- User records voice
+- Whisper STT
+- Compare pronunciation
+- Generate simple pronunciation feedback
+
+------------------------------------------------
+
+4. Daily learning tracking
+
+Track:
+- Learned words
+- Practiced songs
+- Streak
+- Favorite expressions
+
+------------------------------------------------
+
+5. Mobile UX optimization
+
+Requirements:
+- Fast loading
+- Offline cache
+- Low data usage
+- Mobile-first interactions
+
+------------------------------------------------
+IMPORTANT PRODUCT RULES
+------------------------------------------------
+
+- Do NOT build generic ChatGPT UI.
+- UX should feel like:
+  Spotify + Duolingo + K-POP fandom app
+
+- Emotional engagement is critical.
+- Users should feel:
+  "I am understanding Korean culture."
+
+- Avoid academic grammar-heavy design.
+- Focus on immersion and emotional learning.
+
+------------------------------------------------
+ARCHITECTURE
+------------------------------------------------
+
+Implement:
+- Clean architecture
+- AI service abstraction
+- RAG service layer
+- Modular prompt templates
+- Future edge AI compatibility
+
+
+Edge AI Compatibility Requirements:
+- Future support for llama.cpp-compatible GGUF models
+- Android on-device inference compatibility
+- Hybrid edge-cloud AI routing
+- Local embedding support
+- Offline-first architecture preparation
+------------------------------------------------
+OUTPUT REQUIRED
+------------------------------------------------
+
+Generate:
+1. Full system architecture
+2. Database schema
+3. API design
+4. Frontend page structure
+5. AI prompt architecture
+6. RAG pipeline design
+7. Deployment structure
+8. MVP roadmap
+9. Folder structure
+10. Starter implementation code

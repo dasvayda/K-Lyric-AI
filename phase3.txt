@@ -1,0 +1,107 @@
+Transform K-Lyric AI into a next-generation Edge AI learning platform optimized for emerging markets.
+
+------------------------------------------------
+CORE VISION
+------------------------------------------------
+
+An offline-capable personal AI Korean learning companion powered by mobile edge AI.
+
+------------------------------------------------
+EDGE AI FEATURES
+------------------------------------------------
+
+1. On-device SLLM inference
+
+Implement:
+- GGUF model support
+- llama.cpp mobile integration
+- Quantized model loading
+- Hybrid edge-cloud routing
+
+------------------------------------------------
+
+2. Offline-first architecture
+
+Capabilities:
+- Offline learning
+- Local vector DB
+- Local caching
+- Delayed synchronization
+
+------------------------------------------------
+
+3. Personal AI Agent
+
+The AI should:
+- Remember long-term learning behavior
+- Adapt explanations
+- Detect motivation patterns
+- Build personalized learning plans
+
+------------------------------------------------
+
+4. Multimodal Learning
+
+Support:
+- Voice
+- Lyrics
+- Images
+- Short videos
+- Pronunciation waveform analysis
+
+------------------------------------------------
+
+5. Smart AI Routing
+
+Routing strategy:
+- Simple tasks → edge SLLM
+- Complex reasoning → cloud LLM
+- Batch sync during WiFi
+
+------------------------------------------------
+
+6. Ultra-low-cost architecture
+
+Optimize for:
+- Low-end Android devices
+- Low RAM
+- Low bandwidth
+- Battery efficiency
+
+------------------------------------------------
+
+7. Telecom/Device OEM Integration
+
+Prepare architecture for:
+- Preinstalled AI assistant
+- Telecom bundles
+- Offline school packages
+
+------------------------------------------------
+TECH REQUIREMENTS
+------------------------------------------------
+
+Implement:
+- Edge inference abstraction
+- AI routing engine
+- Local RAG
+- Sync engine
+- Memory compression
+- On-device embeddings
+- Privacy-first architecture
+
+------------------------------------------------
+OUTPUT REQUIRED
+------------------------------------------------
+
+Generate:
+1. Edge AI architecture
+2. On-device inference system
+3. AI routing engine
+4. Offline sync design
+5. Mobile optimization strategy
+6. Edge RAG pipeline
+7. Privacy/security architecture
+8. Telecom integration strategy
+9. Cost optimization analysis
+10. Global expansion roadmap

@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build outputs
+.next/
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# LiteRT models (optional - if large)
+# models/
+
+# Testing
+.pytest_cache/
+coverage/

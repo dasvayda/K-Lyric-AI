@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Directory)",
+      "Bash(Select-Object -ExpandProperty Name)",
+      "Bash(find \"C:\\\\mydev\\\\DocuDog\" -name \"*.tflite\" -o -name \"*gemma*\" -o -name \"*qwen*\" 2>/dev/null | head -20)",
+      "Read(//c/mydev/DocuDog/**)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\mydev\\\\DocuDog\\\\models\\\\gemma-3n-E2B-it-litert-lm\" -File | Select-Object Name, @{Label=\"Size\\(MB\\)\";Expression={[math]::Round\\($_.Length/1MB,2\\)}} | Format-Table -AutoSize)",
+      "PowerShell(New-Item -ItemType Directory -Path \"c:\\\\mydev\\\\K-Lyric-AI\\\\backend\" -Force)",
+      "PowerShell(Get-Process -Name \"node\" -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)",
+      "PowerShell(Get-Process | Where-Object {$_.ProcessName -match \"python|uvicorn\"} | Stop-Process -Force)"
+    ]
+  }
+}
