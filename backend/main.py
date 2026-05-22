@@ -1,5 +1,6 @@
 """K-Lyric AI FastAPI Backend with LiteRT inference."""
 
+import logging
 import os
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
@@ -9,10 +10,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
-from services.litert_service import LiteRTService
+from services.litert_service import LiteRTService, LiteRTInferenceError
 
 # Load environment variables from .env
 load_dotenv()
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
 
 # Global inference service (lazy loaded)
 litert_service: LiteRTService | None = None
@@ -50,11 +58,20 @@ class ChatResponse(BaseModel):
     response: str
 
 
+class ErrorResponse(BaseModel):
+    """Structured error response."""
+    error: str
+    code: str
+    detail: str
+
+
 class StatusResponse(BaseModel):
     """Status response with model info."""
     status: str
     model: str | None = None
     loaded: bool
+    backend_version: str = "1.0"
+    message: str = ""
 
 
 def _init_service() -> None:
@@ -74,12 +91,32 @@ def _init_service() -> None:
 async def health_check() -> StatusResponse:
     """Health check endpoint - shows model status without loading."""
     bundle_path = os.getenv("LITERT_BUNDLE_PATH")
-    model_name = os.path.basename(bundle_path) if bundle_path else "unknown"
+
+    if not bundle_path:
+        logger.warning("LITERT_BUNDLE_PATH not configured")
+        return StatusResponse(
+            status="error",
+            model=None,
+            loaded=False,
+            message="LITERT_BUNDLE_PATH environment variable not set"
+        )
+
+    model_name = os.path.basename(bundle_path)
+
+    if not os.path.isfile(bundle_path):
+        logger.warning(f"Bundle file not found: {bundle_path}")
+        return StatusResponse(
+            status="error",
+            model=model_name,
+            loaded=False,
+            message=f"Bundle file not found: {bundle_path}"
+        )
 
     return StatusResponse(
         status="ok",
         model=model_name,
         loaded=litert_service is not None,
+        message="Backend ready. Model is lazy-loaded on first request."
     )
 
 
@@ -126,24 +163,43 @@ async def init_model() -> StatusResponse:
 async def tutor_chat(message: ChatMessage) -> ChatResponse:
     """AI tutor chat endpoint using LiteRT."""
     if not message.prompt.strip():
-        raise HTTPException(status_code=400, detail="Prompt cannot be empty")
+        logger.warning("Empty prompt received")
+        raise HTTPException(
+            status_code=400,
+            detail="Prompt cannot be empty"
+        )
 
     try:
-        # Lazy init on first request
         _init_service()
 
         if litert_service is None:
-            raise HTTPException(status_code=503, detail="LiteRT service initialization failed")
+            logger.error("LiteRT service initialization failed")
+            raise HTTPException(
+                status_code=503,
+                detail="AI tutor service initialization failed. Check LITERT_BUNDLE_PATH."
+            )
 
         response = litert_service.complete(
             prompt=message.prompt,
             system=message.system or "You are a warm Korean language tutor.",
         )
+        logger.info(f"Chat completed successfully")
         return ChatResponse(response=response)
+
+    except LiteRTInferenceError as e:
+        logger.error(f"LiteRT inference error at {e.stage}: {e.cause}")
+        raise HTTPException(
+            status_code=503,
+            detail=f"AI inference failed: {e.stage}. Please check the model file."
+        )
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"Unexpected error in chat: {type(e).__name__}: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Internal server error: {type(e).__name__}"
+        )
 
 
 if __name__ == "__main__":
